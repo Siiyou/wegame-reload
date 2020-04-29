@@ -19,7 +19,7 @@ import java.util.Map;
 public class HelloController {
 
     /**
-     * @author Kurobane Lia
+     * @author Kurobane
      * @date 2020-4-27
      * spring ioc 依赖注入
      */
