@@ -6,10 +6,7 @@ import com.game.wegame.service.interf.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -19,7 +16,7 @@ import java.util.Map;
 public class HelloController {
 
     /**
-     * @author Kurobane Lia
+     * @author Kurobane
      * @date 2020-4-27
      * spring ioc 依赖注入
      */
@@ -63,6 +60,7 @@ public class HelloController {
      * @return
      */
     @RequestMapping("/selectByPrimaryKey")
+    @ResponseBody
     public User selectByPrimaryKey() {
         User user = userMapper.selectByPrimaryKey(1);
         return user;
@@ -73,6 +71,7 @@ public class HelloController {
      * @return
      */
     @RequestMapping("/selectAll")
+    @ResponseBody
     public List<User> selectAll() {
         List<User> list = userMapper.selectAll();
         return list;

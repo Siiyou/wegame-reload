@@ -1,15 +1,21 @@
 package com.game.wegame.service.interf;
 
 import com.game.wegame.entity.User;
+import com.game.wegame.service.sqlProvider.UserMapperProvider;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.context.annotation.Bean;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author kurobane
+ * @date 2020-5-2
+ * 用户账号管理数据类 mapper类
+ */
 @Mapper
-@Component(value ="userMapper")
+@Repository
 public interface UserMapper {
 
     int deleteByPrimaryKey(Integer id);
@@ -18,11 +24,8 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    @Select("select id,username,password from user where id=#{id}")
     User selectByPrimaryKey(Integer id);
 
-    @Select("select id,username,password from user")
-    List<User> selectAll();
-
+    List selectAll();
 
 }
