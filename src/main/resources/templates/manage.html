@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/assets/css/app.css">
+
+</head>
+
+<body>
+
+<script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
+    <form id="form">
+       用户名：<input name="username" type="text">
+         密码：<input name="password" type="text">
+       <input id="btn" type="button" value="提交" style="display: inline">
+    </form>
+
+
+<script>
+    $(function(){
+        $("#btn").click(function () {
+            var obj = $('#form').serializeArray();
+            var jsonstr = JSON.stringify(obj);
+
+            $.ajax({
+                url:"http://localhost:8081/insert",
+                async:true,
+                dataType:'json',
+                type:"POST",
+                data:{
+                  form:jsonstr
+                },
+                success:function(data){
+
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>
