@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/assets/css/app.css">
+
+</head>
+
+<body>
+<button id="send">send</button>
+
+<script type="text/javascript" src="/static/assets/js/jquery.min.js"></script>
+    hello wegame233
+<script>
+    $(function(){
+        // 新建WebSocket对象，最后的/websocket对应服务器端的@ServerEndpoint("/websocket")
+        var socket = new WebSocket('ws://localhost:8081/websocket');
+
+        // 处理服务器端发送的数据
+        socket.onmessage = function(event) {
+            let data = event;
+            debugger
+            // addMessage(event.data);
+        };
+
+        $('#send').on('click', function() {
+            // 发送消息
+            socket.send(JSON.stringify({
+                content : 'content123',
+                nickname : 'nickname333'
+            }));
+        })
+    })
+</script>
+</body>
+</html>
